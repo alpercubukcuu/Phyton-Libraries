@@ -31,18 +31,31 @@ x2 = np.arange(0, 5, 0.5)
 plt.plot(x2, x2*2, color='red', linestyle="--", marker=".")
 plt.legend(["This is my legend"], fontsize="large")
 # plt.savefig("first graphic", dpi=300) # Oluşturulan grafiğin kaydedilmesini sağlar.
-plt.show()
+#plt.show() #Kullanılacağı zaman açılır
 
 #Petrol fiyatlarını okuyup grafiğe çeviriyoruz.
 
 gas = pd.read_csv("petrolfiyatlari.csv")
+plt.figure(figsize=(9, 4))
 plt.title("Petrol Fiyatları")
 plt.plot(gas.Year, gas['USA'], 'b-', label='USA')
 plt.plot(gas.Year, gas['Canada'], 'r-', label='Canada')
-plt.plot(gas.Year, gas['South Korea'], 'g-', label='Korea')
-plt.plot(gas.Year, gas['France'], 'y-', label='France')
+plt.plot(gas.Year, gas['South Korea'], 'g.-', label='Korea')
+plt.plot(gas.Year, gas['France'], 'y.-', label='France')
+plt.plot(gas.Year, gas.Germany, color='purple', label='Germany')
 
 plt.xlabel('Yıl')
 plt.ylabel('Dolar')
 plt.legend()
-plt.show()
+# plt.show() #Kullanılacağı zaman açılır
+
+### NUMPY LİBARY ###
+
+array1 = np.array([1, 3, 5])
+array2 = np.array([5, 8, 11])
+array2d = np.array([[1, 5, 9], [5, 8, 9]]) # 2 Boyutlu dizi
+
+#Dosyadan sizi okumak için kullanılır.
+filedata = np.genfromtxt('Dizi Örnekleri.txt', delimiter=',')
+filedata = filedata.astype('int32')
+print(filedata)
